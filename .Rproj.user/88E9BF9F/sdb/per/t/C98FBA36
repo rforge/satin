@@ -1,0 +1,16 @@
+{
+    "contents" : "dataSetQuery <-\nfunction(parameter = NULL, resolution = NULL, others = NULL, \n                         dataset = NULL){\n  vars <- unique(dataSetList$Param.name)\n    Q1 <- dataSetList  \n  if ( !missing(parameter) )\n    Q1 <- Q1[agrep(parameter, Q1[, 'Param.name'], ignore.case = TRUE), ]\n  if ( !missing(resolution) )\n    Q1 <- Q1[agrep(resolution, Q1[, 'Spa.res'], ignore.case = TRUE), ]  \n  if ( !missing(others) )\n    Q1 <- Q1[agrep(others, Q1[, 'Full.descr'], ignore.case = TRUE), ]\n  if ( missing(parameter) & missing(resolution) & missing(others) )\n    Q1 <- vars\n  if ( !missing(dataset) )\n    Q1 <- dataSetList[dataset, 1]\n  Q1\n}\n",
+    "created" : 1389379841858.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3274055243",
+    "id" : "C98FBA36",
+    "lastKnownWriteTime" : 1378747116,
+    "path" : "/var/run/media/hecvi/KINGSTON/satin/R/dataSetQuery.R",
+    "project_path" : "R/dataSetQuery.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

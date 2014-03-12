@@ -1,0 +1,17 @@
+{
+    "contents" : "# Prueba 2014-01-10\n\nlibrary(satin)\n\ndata(dataSetList)\n\ndataSetQuery()\n\ndataSetQuery(parameter=\"tem\", resolution = \"0.05degrees\")\n\nds <- dataSetQuery(dataset=40)\n\ntimePeriod(ds)\n",
+    "created" : 1389379575682.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "1846375135",
+    "id" : "30AAC445",
+    "lastKnownWriteTime" : 86614608,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

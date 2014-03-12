@@ -1,0 +1,15 @@
+{
+    "contents" : "\\name{cutSatin}\n\\alias{cutSatin}\n%- Also NEED an '\\alias' for EACH other topic documented here.\n\\title{\n Cut an area of interest from satellite images\n}\n\\description{\n Select and cut a polygon shaped area of interest (aoi) from satellite images\n}\n\\usage{\ncutSatin(satin.obj, polygon = NULL, return.poly = FALSE)\n}\n%- maybe also 'usage' for other objects documented here.\n\\arguments{\n  \\item{satin.obj}{\n  a satin object as returned by \\code{read.oceancolor}\n}\n  \\item{polygon}{\n  a polygon defining the aoi to be cut\n}\n\\item{return.poly}{\n  if TRUE \\code{\\link{cutSatin}} returns a list with two elements: an object class satin and an object class data.frame (polygon), otherwise an object class satin only\n}\n}\n\\details{\n If provided, the polygon defining the aoi must have two columns with x and y  coordinates. The function assures that the last point is exactly the same as the first one. When not specified, the user can define the polygon by a series of clicks on the previously displayed image. The result is a list containing the polygon and a ``satin'' object with  the same dimensions as the original, but where the pixels outside the aoi are set to NA.\n}\n\\value{\nA list with two components:\n \\item{polygon}{polygon coordinates defining the aoi}\n \\item{aoi}{a ``satin'' object as returned by \\code{\\link{read.oceancolor}}}\n\n}\n%\\references{\n%% ~put references to the literature/web site here ~\n%}\n\\author{\n Héctor Villalobos\n}\n%\\note{\n%%  ~~further notes~~\n%}\n\n%% ~Make other sections like Warning with \\section{Warning }{....} ~\n\n\\seealso{\n \\code{\\link{read.oceancolor}}, \\code{\\link{getpoly}} \n}\n\\examples{\n# load and display sample data\ndata(dbsst)\nplotSatin(dbsst)\n  \n# define polygon, cut the image and display the aoi\npolyg <- data.frame(x = c(-125, -126, -120, -119, -125), y = c(35, 30, 28, 34, 35))\ndbsst.cut <- cutSatin(dbsst, polygon = polyg)\nplotSatin(dbsst.cut)\n\n\\dontrun{ \n\n# the same, but polygon is defined by clicking on the image\nplotSatin(dbsst)\ndbsst.cut <- cutSatin(dbsst, return.poly = TRUE) # *** draw the aoi polygon ***\ndbsst.cut$polygon # show polygon coordinates\nplotSatin(dbsst.cut$aoi) # plot the selected aoi\n}\n}\n% Add one or more standard keywords, see file 'KEYWORDS' in the\n% R documentation directory.\n%\\keyword{ ~kwd1 }\n%\\keyword{ ~kwd2 }% __ONLY ONE__ keyword per line\n",
+    "created" : 1384220669665.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1904147358",
+    "id" : "8AF8E97D",
+    "lastKnownWriteTime" : 1384220683,
+    "path" : "D:/satin/man/cutSatin.Rd",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_doc"
+}

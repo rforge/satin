@@ -1,0 +1,16 @@
+{
+    "contents" : "download.oceancolor <-\nfunction(day, month, year, vari=c(\"CHLO\", \"SST\"), resol=4, bunzip=NULL, h4toh5=NULL)\n{\nrequire(chron)\nwebAdr <- \"http://oceandata.sci.gsfc.nasa.gov/cgi/getfile/\"\nif (vari == \"CHLO\" ) {\n  cvari <- vari\n  } else {\n  if (vari == \"SST\" ) {\n    cvari <- paste(vari, 4, sep=\"\")\n  }\n}\n\njday <- julian( month, day, year, origin.=c(1, 0, year) ) \n if ( nchar(jday) == 2 )\n   jday <- paste(\"0\", jday, sep=\"\")\n if ( nchar(jday) == 1 )\n   jday <- paste(\"00\", jday, sep=\"\")  \nhdfFN <- paste(\"A\", year, jday, \".L3m_DAY_\", cvari, \"_\", resol, \".bz2\", sep=\"\") \nhdfunz <- paste(\"A\", year, jday, \".L3m_DAY_\", cvari, \"_\", resol, sep=\"\") \nhdfunz2 <- paste(\"A\", year, jday, \".L3m_DAY_\", cvari, \"_\", resol, \".hdf\", sep=\"\") \n\nURL <- paste(webAdr, hdfFN, sep=\"\")\n\ndownload.file(URL, hdfFN)\n\nif(.Platform$OS.type==\"windows\") {\n  bunzip <- \"C:\\\\Progra~2\\\\GnuWin32\\\\bin\\\\bunzip2.exe -d \"\n  system( paste(bunzip, hdfFN), intern=TRUE  )\n  system ( paste(\"ren\", hdfunz, hdfunz2, sep=\" \"), intern=TRUE )\n} else {\n  system( paste(\"bunzip2\", hdfFN) )\n  system ( paste(\"mv\", hdfunz, hdfunz2, sep=\" \") )\n}\n\nhdf4to5 <- function(nom.hdf4, path2exe=NULL)\n  {\n    nom.hdf5 <- paste(nom.hdf4, \"5\", sep=\"\")\n    if (is.null(path2exe))\n      path2exe=\"/home/hecvi/bin/h4h5tools-2.2.2-linux-x86_64-static/bin/\"\n    h4h5cmd <- paste(path2exe, \"h4toh5\", sep=\"\")\n    system(paste(h4h5cmd, nom.hdf4, nom.hdf5, sep=\" \"))\n  }\n  \n\n\n}\n\n#download_HDF( day=1, month=07, year=2011, vari=\"SST\" )\n",
+    "created" : 1393310056303.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2442997407",
+    "id" : "7A1E28ED",
+    "lastKnownWriteTime" : 1393310166,
+    "path" : "J:/nR/packages/satin_pkg/download_OceanColor.R",
+    "project_path" : null,
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

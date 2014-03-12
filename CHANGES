@@ -1,0 +1,20 @@
+#####################################################################
+           Changes in satin Version 0.2-1  2012-07-11
+#####################################################################
+
+
+With the release of AVHRR Pathfinder Version 5.2 in September 2011, data is now in netCDF-4 format (see http://www.nodc.noaa.gov/SatelliteData/pathfinder4km/ for details). Because of this change, SST data from AVHRR is not supported in this version of 'satin'. 
+
+CHANGES TO EXISTING FUNCTIONS
+
+  * satinGet() can now handle one or more hdf files at once, therefore satinMGet() is deprecated.
+
+  * satinView() the code for displaying wind speed vectors has been put into a separated  function (see quiver() below). The argument log=TRUE now gives the common (i.e., base 10) logarithm of the parameter (Clorophyll-a concentration) instead of the natural logarithm. The color bar is sligthly separated from the map, and their labels are now in the original units when using log=TRUE.
+
+  * genColorPal() the argument 'stp' (space between colors) has been changed to 'length' (number of colors)
+
+NEW FUNCTIONS
+
+  * quiver() is a new function to display wind speed data
+
+  * 

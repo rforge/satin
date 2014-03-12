@@ -1,0 +1,21 @@
+Package: satin
+Type: Package
+Title: Functions for downloading, reading and displaying satellite data for oceanographic applications with R
+Version: 0.3
+Date: 2013-10-30
+Encoding: UTF-8
+Author: Héctor Villalobos, Raul O. Martinez-Rincon <raul.martinez.rincon@gmail.com> and Eduardo González-Rodríguez <egonzale@cicese.mx>
+Maintainer: Héctor Villalobos <hvillalo@ipn.mx>
+Depends: R (>= 3.0), h5r, ncdf, maptools, maps, PBSmapping, chron, plotrix, splancs
+Description: Main functions extract a user defined subset of satellite data 
+             from hdf5 files which are then available for further analyses and
+             can also be displayed in maps. Currently supported NOAA products 
+             includes: Quick Scatterometer (QuikSCAT); Moderate-resolution Imaging 
+             Spectroradiometer (from Aqua satellite: Aqua MODIS) and Sea-viewing 
+             Wide Field-of-view Sensor (SeaWiFS). The functions have been tested 
+             with sea surface temperature (SST), chlorophyll-a (Chl-a) concentration 
+             from Aqua MODIS and SeaWiFS and ocean surface wind speed data 
+             from QuikSCAT. 
+License: GPL (>= 2)
+LazyLoad: yes
+LazyData: yes

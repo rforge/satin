@@ -1,0 +1,17 @@
+{
+    "contents" : "recodeCoord <-\n  function(lon, lat, extent=1)\n  {\n    xt <- extent/60\n    x <- lon\n    y <- lat\n    \n    xs <- seq( floor(min(x)), ceiling(max(x)), xt )\n    if (max(x) > xs[length(xs)]) \n      xs <- c(xs, xs[length(xs)] + xt)\n    \n    ys <- seq( floor(min(y)), ceiling(max(y)), xt )\n    if (max(y) > ys[length(ys)]) \n      ys <- c(ys, ys[length(ys)] + xt)\n    \n    pmx <- xs[-length(xs)] + xt/2\n    pmy <- ys[-length(ys)] + xt/2\n    \n    nlon <- x\n    for (i in 1:length(x)) {\n      for(j in 1:length(xs)) {\n        if(x[i] >= xs[j] & x[i] < xs[j+1]) \n          nlon[i] <- pmx[j]\n      }    \n    }     \n    \n    nlat <- y\n    for (i in 1:length(y)) {\n      for(j in 1:length(ys)) {\n        if(y[i] >= ys[j] & y[i] < ys[j+1]) \n          nlat[i] <- pmy[j]\n      }    \n    }     \n    \n    sx <- aggregate(nlon, by=list(nlon, nlat), length)\n    names(sx) <- c(\"lon\", \"lat\", \"frec\")\n    sx\n  }\n\n",
+    "created" : 1393306645416.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "2412100625",
+    "id" : "BC5CB1C2",
+    "lastKnownWriteTime" : 578055781,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
